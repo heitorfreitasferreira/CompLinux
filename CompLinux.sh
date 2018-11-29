@@ -32,7 +32,7 @@ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F
 apt-get update;
 
 #instala tudo
-apt-get install -y --allow-unauthenticated dia gparted docker netbeans inkscape gcc g++ git synaptic aptitude banshee ssh flatpak codeblocks eclipse postgresql pgadmin3 google-chrome-stable spotify-client apt-transport-https sublime-text notepadqq atom numix-gtk-theme caffeine-plus gimp
+apt-get install -y --allow-unauthenticated dia gparted docker netbeans inkscape gcc g++ git synaptic aptitude banshee ssh flatpak codeblocks eclipse postgresql pgadmin3 google-chrome-stable spotify-client apt-transport-https sublime-text notepadqq atom numix-gtk-theme caffeine-plus gimp ghc eclipse geogebra swi-prolog swi-prolog-x logisim wireshark octave 
 
 #instala o gimp
 #flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
