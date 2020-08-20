@@ -6,38 +6,32 @@ if [ "$EUID" -ne 0 ]
   read
   exit
 fi;
+#ATUALIZA O APT
+apt-get update;
+#INSTALAÇÕES APT
+sudo apt update && sudo apt install -y --allow-unauthenticated snapd gcc g++ git synaptic ssh swi-prolog flameshot
+#DEVALOPER
+sudo snap install node --classic
+sudo snap install code --classic
+sudo snap install insomnia robo3t-snap
+#COMUNICATION
+sudo snap install discord --classic 
+sudo snap install mailspring obs-studio
+#OUTROS
+sudo snap install spotify vlc gimp whatsdesk
+#ADICIONANDO REPOSITÓRIOS APT
+sudo apt-add-repository ppa:swi-prolog/stable
+sudo add-apt-repository ppa:transmissionbt/ppa
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 
-							    
-add-apt-repository ppa:alexlarsson/flatpak -y               #adiciona as PPA do flatpak
-add-apt-repository ppa:notepadqq-team/notepadqq -y          #adiciona as PPA do notepadqq
-add-apt-repository ppa:nilarimogard/webupd8 -y              #adiciona o PPA do caffeine
-
-
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -         #Download do chrome
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -              #Download do sublime
-curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add -                     #Download do atom
-
-#Coloca o sublime no sources.list
-echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
 #Coloca o chrome no sources.list
 sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-#Coloca o atom no sources.list
-sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
-#Coloca o spotify no sources.list
-echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list
-#Adiciona a chave do spotify
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 
-#atualiza o apt
-apt-get update;
+sudo apt update
+sudo apt install -y google-chrome-stable mongodb-org
 
-#instala tudo
-apt-get install -y --allow-unauthenticated dia gparted docker netbeans inkscape gcc g++ git synaptic aptitude banshee ssh flatpak codeblocks eclipse postgresql pgadmin3 google-chrome-stable spotify-client apt-transport-https sublime-text notepadqq atom numix-gtk-theme caffeine-plus gimp ghc eclipse geogebra swi-prolog swi-prolog-x logisim wireshark octave 
+npm install -g nodemon
 
-#instala o gimp
-#flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
-#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-#orientação para instalar o PostgreSQL
-echo -e "Instalação feita, o próximo passo é alterar a senha do usuário postgres digitando:\n#ALTER USER postgres WITH PASSWORD 'senha';\n#\q\n"
-su postgres -c psql postgres
+printf '\n\n\n\n\n\n\nPor favor reinicie o computador para finalizar a instalação dos programas\n\n'
